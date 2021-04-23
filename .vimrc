@@ -68,11 +68,16 @@ augroup MyCustomAutoGroup
     autocmd BufWritePre * :call TrimWhitespace()
     " This sets the file formats to unix, avoiding ^M errors when coming from dos
     autocmd BufWritePre * :set fileformat=unix
+	" Auto source .vimrc file at saving
+	autocmd BufWritePost .vimrc :so %
 augroup END
 
 
 " Remaps -----------------------------------------------------------------------------------------
 let mapleader = ' '
+
+" Inner terminal shortcut
+map <leader>t :term<CR>
 
 " NERDTree remaps
 nnoremap <leader>f :NERDTreeFocus<CR>
