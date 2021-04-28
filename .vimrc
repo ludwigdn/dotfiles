@@ -10,7 +10,6 @@ endif
 " Plugins ----------------------------------------------------------------------------------------
 call plug#begin('~/.vim/plugged')
   Plug 'gruvbox-community/gruvbox'
-  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'preservim/nerdtree'
 call plug#end()
 
@@ -27,8 +26,14 @@ set guicursor=
 set scrolloff=10
 set nohlsearch
 set hidden
-set tabstop=4 softtabstop=4
-set shiftwidth=4
+
+" Use filetype detection and file-based automatic indenting
+filetype plugin indent on
+" This whole stuff convert tabs to 4 spaces instead
+  set tabstop=4
+  set shiftwidth=4
+  set expandtab
+
 set smartindent
 set noswapfile
 set nobackup
@@ -57,12 +62,13 @@ endfun
 augroup MyCustomAutoGroup
     autocmd!
     autocmd StdinReadPre * let s:std_in=1
+    " Use actual tab chars in Makefiles.
+    autocmd FileType make set tabstop=8 shiftwidth=8 softtabstop=0 noexpandtab
     " Start NERDTree when Vim starts with a file argument.
     autocmd VimEnter * if argc() > 0 || exists("s:std_in") | NERDTree | wincmd p | endif
     " Start NERDTree when Vim starts with a directory argument.
     autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') | execute 'NERDTree' argv()[0] | wincmd p | enew | execute 'cd '.argv()[0]  | endif
     " Exit Vim if NERDTree is the only window left.
-    " TODO try tto update this with current window only
     autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
     " call function to auto-trim whitespaces at end of lines
     autocmd BufWritePre * :call TrimWhitespace()
@@ -72,30 +78,38 @@ augroup MyCustomAutoGroup
 	autocmd BufWritePost .vimrc :so %
 augroup END
 
-
 " Remaps -----------------------------------------------------------------------------------------
 let mapleader = ' '
 
 " Inner terminal shortcut
 map <leader>t :term<CR>
 
+" Grep for visual-selected text in root folder
+nnoremap <leader>g :execute "grep -r --exclude-dir=node_modules " . expand("<cword>") . " **" <Bar> cw<CR>
+
 " NERDTree remaps
 nnoremap <leader>f :NERDTreeFocus<CR>
 nnoremap <leader>nt :NERDTreeToggle<CR>
-nnoremap <leader>nff :NERDTreeFind<CR>
-nnoremap <leader>nf :NERDTreeFind
-" Open a new tab with NERDTree started
-map <leader>n :tabnew<CR>:NERDTree<CR>
+nnoremap <leader>nf :NERDTreeFind<CR>
+nnoremap <leader>nff :NERDTreeFind
+nnoremap <leader>n :tabnew<CR>:NERDTree<CR>
 " Rrefresh NERDTree
-nmap <leader>r :NERDTreeFocus<cr>r<c-w><c-p>
+nnoremap <leader>r :NERDTreeFocus<cr>r<c-w><c-p>
 
 " Switch between windows more easily
-nnoremap <leader>w <C-w>
-" Move to left window
-map <leader>h : wincmd h<CR>
-" Move to left tab
-map <leader>th :tabp<CR>
-" Move to right window
-map <leader>l :wincmd l<CR>
-" Move to right tab
-map <leader>tl :tabn<CR>
+nnoremap <C-H> :wincmd h<CR>
+nnoremap <C-J> :wincmd j<CR>
+nnoremap <C-K> :wincmd k<CR>
+nnoremap <C-L> :wincmd l<CR>
+
+" Move to previous/next buffer
+nnoremap <LEADER>j :bnext<CR>
+nnoremap <LEADER>k :bprev<CR>
+
+" Move to previous/next tab
+nnoremap <leader>h :tabp<CR>
+nnoremap <leader>l :tabn<CR>
+
+" Quickfixlist shortcuts
+nnoremap <leader>co :copen<CR>
+nnoremap <leader>cc :ccl<CR>
