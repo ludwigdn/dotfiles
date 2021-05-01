@@ -29,9 +29,9 @@ set hidden
 
 " Use filetype detection and file-based automatic indenting
 filetype plugin indent on
-" This whole stuff convert tabs to 4 spaces instead
-  set tabstop=4
-  set shiftwidth=4
+" This whole stuff convert tabs to 2 spaces instead
+  set tabstop=2
+  set shiftwidth=2
   set expandtab
 
 set smartindent
