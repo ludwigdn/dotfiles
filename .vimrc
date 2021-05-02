@@ -43,6 +43,7 @@ set incsearch
 set cmdheight=2
 " set colorcolumn=82
 set signcolumn=yes
+let g:NERDTreeShowHidden=1
 
 
 " Colors -----------------------------------------------------------------------------------------
@@ -113,3 +114,7 @@ nnoremap <leader>l :tabn<CR>
 " Quickfixlist shortcuts
 nnoremap <leader>co :copen<CR>
 nnoremap <leader>cc :ccl<CR>
+
+" Yank current word / paste on current word
+nnoremap <leader>y viwy
+nnoremap <leader>p viwp
