@@ -15,7 +15,6 @@ call plug#end()
 
 
 " Set --------------------------------------------------------------------------------------------
-set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
 set relativenumber
 set nu
 set wrap
@@ -47,8 +46,13 @@ let g:NERDTreeShowHidden=1
 
 
 " Colors -----------------------------------------------------------------------------------------
+set t_Co=256
 colorscheme gruvbox
 set background=dark
+
+
+" Status line ------------------------------------------------------------------------------------
+:set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
 
 
 " Functions --------------------------------------------------------------------------------------
@@ -75,18 +79,18 @@ augroup MyCustomAutoGroup
     autocmd BufWritePre * :call TrimWhitespace()
     " This sets the file formats to unix, avoiding ^M errors when coming from dos
     autocmd BufWritePre * :set fileformat=unix
-	" Auto source .vimrc file at saving
-	autocmd BufWritePost .vimrc :so %
+  	" Auto source .vimrc file at saving
+  	autocmd BufWritePost .vimrc :so %
 augroup END
 
 " Remaps -----------------------------------------------------------------------------------------
-let mapleader = ' '
+let mapleader = "\<space>"
 
 " Inner terminal shortcut
 map <leader>t :term<CR>
 
-" Grep for visual-selected text in root folder
-nnoremap <leader>g :execute "grep -r --exclude-dir=node_modules " . expand("<cword>") . " **" <Bar> cw<CR>
+" WIP: Grep for visual-selected text in root folder
+" nnoremap <leader>g :execute \"grep -r --exclude-dir=node_modules \" . expand("<cword>") . \" **\" <Bar> cw<CR>
 
 " NERDTree remaps
 nnoremap <leader>f :NERDTreeFocus<CR>
@@ -95,7 +99,7 @@ nnoremap <leader>nf :NERDTreeFind<CR>
 nnoremap <leader>nff :NERDTreeFind
 nnoremap <leader>n :tabnew<CR>:NERDTree<CR>
 " Rrefresh NERDTree
-nnoremap <leader>r :NERDTreeFocus<cr>r<c-w><c-p>
+nmap <leader>r :NERDTreeFocus<cr>R<c-w><c-p>
 
 " Switch between windows more easily
 nnoremap <C-H> :wincmd h<CR>
