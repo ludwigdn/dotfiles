@@ -83,6 +83,30 @@ augroup MyCustomAutoGroup
   	autocmd BufWritePost .vimrc :so %
 augroup END
 
+
+" Highlight all instances of word under cursor, when idle ----------------------------------------
+" Type z/ to toggle highlighting on/off.
+nnoremap z/ :if AutoHighlightToggle()<Bar>set hls<Bar>endif<CR>
+function! AutoHighlightToggle()
+  let @/ = ''
+  if exists('#auto_highlight')
+    au! auto_highlight
+    augroup! auto_highlight
+    setl updatetime=200
+    echo 'Highlight current word: off'
+    return 0
+  else
+    augroup auto_highlight
+      au!
+      au CursorHold * let @/ = '\V\<'.escape(expand('<cword>'), '\').'\>'
+    augroup end
+    setl updatetime=200
+    echo 'Highlight current word: ON'
+    return 1
+  endif
+endfunction
+
+
 " Remaps -----------------------------------------------------------------------------------------
 let mapleader = "\<space>"
 
@@ -102,14 +126,14 @@ nnoremap <leader>n :tabnew<CR>:NERDTree<CR>
 nmap <leader>r :NERDTreeFocus<cr>R<c-w><c-p>
 
 " Switch between windows more easily
-nnoremap <C-H> :wincmd h<CR>
-nnoremap <C-J> :wincmd j<CR>
-nnoremap <C-K> :wincmd k<CR>
-nnoremap <C-L> :wincmd l<CR>
+nnoremap <C-h> :wincmd h<CR>
+nnoremap <C-j> :wincmd j<CR>
+nnoremap <C-k> :wincmd k<CR>
+nnoremap <C-l> :wincmd l<CR>
 
 " Move to previous/next buffer
-nnoremap <LEADER>j :bnext<CR>
-nnoremap <LEADER>k :bprev<CR>
+nnoremap <leader>j :bnext<CR>
+nnoremap <leader>k :bprev<CR>
 
 " Move to previous/next tab
 nnoremap <leader>h :tabp<CR>
