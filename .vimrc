@@ -11,6 +11,9 @@ endif
 call plug#begin('~/.vim/plugged')
   Plug 'gruvbox-community/gruvbox'
   Plug 'preservim/nerdtree'
+  Plug 'dense-analysis/ale'
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  Plug 'junegunn/fzf.vim'
 call plug#end()
 
 
@@ -25,24 +28,28 @@ set guicursor=
 set scrolloff=10
 set nohlsearch
 set hidden
-
-" Use filetype detection and file-based automatic indenting
-filetype plugin indent on
-" This whole stuff convert tabs to 2 spaces instead
-  set tabstop=2
-  set shiftwidth=2
-  set expandtab
-
-set smartindent
 set noswapfile
 set nobackup
 set undodir=~/.vim/undodir
 set undofile
 set incsearch
+set hlsearch
 set cmdheight=2
-" set colorcolumn=82
+"set colorcolumn=82
 set signcolumn=yes
 let g:NERDTreeShowHidden=1
+
+" Use filetype detection and file-based automatic indenting
+filetype plugin indent on
+set tabstop=2
+set shiftwidth=2
+set expandtab
+set smartindent
+
+" Prevent freeze on large ts files because of syntax highlighting
+" (source: https://jameschambers.co.uk/vim-typescript-slow)
+syntax on
+set re=0
 
 
 " Colors -----------------------------------------------------------------------------------------
@@ -55,7 +62,36 @@ set background=dark
 :set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
 
 
+" Ale lintera-------------------------------------------------------------------------------------
+let g:ale_sign_error = '●'
+let g:ale_sign_warning = '.'
+let g:ale_lint_on_save = 1
+
+
 " Functions --------------------------------------------------------------------------------------
+
+" Highlight all instances of word under cursor, when idle Type z/ to toggle
+nnoremap z/ :if AutoHighlightToggle()<Bar>set hls<Bar>endif<CR>
+function! AutoHighlightToggle()
+  let @/ = ''
+  if exists('#auto_highlight')
+    au! auto_highlight
+    augroup! auto_highlight
+    setl updatetime=50
+    echo 'Highlight current word: off'
+    return 0
+  else
+    augroup auto_highlight
+      au!
+      au CursorHold * let @/ = '\V\<'.escape(expand('<cword>'), '\').'\>'
+    augroup end
+    setl updatetime=50
+    echo 'Highlight current word: ON'
+    return 1
+  endif
+endfunction
+
+" Well, the name is explicit
 fun! TrimWhitespace()
 	let l:save = winsaveview()
 	keeppatterns %s/\s\+$//e
@@ -84,46 +120,16 @@ augroup MyCustomAutoGroup
 augroup END
 
 
-" Highlight all instances of word under cursor, when idle ----------------------------------------
-" Type z/ to toggle highlighting on/off.
-nnoremap z/ :if AutoHighlightToggle()<Bar>set hls<Bar>endif<CR>
-function! AutoHighlightToggle()
-  let @/ = ''
-  if exists('#auto_highlight')
-    au! auto_highlight
-    augroup! auto_highlight
-    setl updatetime=200
-    echo 'Highlight current word: off'
-    return 0
-  else
-    augroup auto_highlight
-      au!
-      au CursorHold * let @/ = '\V\<'.escape(expand('<cword>'), '\').'\>'
-    augroup end
-    setl updatetime=200
-    echo 'Highlight current word: ON'
-    return 1
-  endif
-endfunction
-
-
 " Remaps -----------------------------------------------------------------------------------------
 let mapleader = "\<space>"
 
 " Inner terminal shortcut
 map <leader>t :term<CR>
 
-" WIP: Grep for visual-selected text in root folder
-" nnoremap <leader>g :execute \"grep -r --exclude-dir=node_modules \" . expand("<cword>") . \" **\" <Bar> cw<CR>
-
 " NERDTree remaps
-nnoremap <leader>f :NERDTreeFocus<CR>
-nnoremap <leader>nt :NERDTreeToggle<CR>
-nnoremap <leader>nf :NERDTreeFind<CR>
-nnoremap <leader>nff :NERDTreeFind
-nnoremap <leader>n :tabnew<CR>:NERDTree<CR>
+nnoremap <leader>n :NERDTreeToggle<CR>
 " Rrefresh NERDTree
-nmap <leader>r :NERDTreeFocus<cr>R<c-w><c-p>
+nnoremap <leader>r :NERDTreeFocus<cr>R<c-w><c-p>
 
 " Switch between windows more easily
 nnoremap <C-h> :wincmd h<CR>
@@ -146,3 +152,9 @@ nnoremap <leader>cc :ccl<CR>
 " Yank current word / paste on current word
 nnoremap <leader>y viwy
 nnoremap <leader>p viwp
+
+" Search through file names (via fzf)
+nnoremap <silent> <leader>f :Files<CR>
+" Search files content (via ripgrep)
+nnoremap <silent> <leader>g :Rg<CR>
+
