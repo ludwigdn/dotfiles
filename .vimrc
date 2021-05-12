@@ -16,6 +16,10 @@ call plug#begin('~/.vim/plugged')
   Plug 'junegunn/fzf.vim'
 call plug#end()
 
+" Plugins dependencies
+" - Silver Searcher (https://github.com/ggreer/the_silver_searcher#installing)
+" - Ripgrep (https://github.com/BurntSushi/ripgrep#installation)
+
 
 " Set --------------------------------------------------------------------------------------------
 set relativenumber
@@ -38,6 +42,10 @@ set cmdheight=2
 "set colorcolumn=82
 set signcolumn=yes
 let g:NERDTreeShowHidden=1
+
+" Autocompletion
+filetype plugin on
+set omnifunc=syntaxcomplete#Complete
 
 " Use filetype detection and file-based automatic indenting
 filetype plugin indent on
@@ -124,7 +132,7 @@ augroup END
 let mapleader = "\<space>"
 
 " Inner terminal shortcut
-map <leader>t :term<CR>
+map <leader>t :terminal<CR>
 
 " NERDTree remaps
 nnoremap <leader>n :NERDTreeToggle<CR>
