@@ -14,17 +14,24 @@ call plug#begin('~/.vim/plugged')
   Plug 'dense-analysis/ale'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 " Plugins dependencies
 " - Silver Searcher (https://github.com/ggreer/the_silver_searcher#installing)
 " - Ripgrep (https://github.com/BurntSushi/ripgrep#installation)
 
+" coc extensions:
+" https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions
+" :CocInstall coc-json coc-tsserver
+" :CocInstall coc-html coc-css
+" :CocInstall coc-omnisharp
+
 
 " Set --------------------------------------------------------------------------------------------
 set relativenumber
 set nu
-set wrap
+set nowrap
 set linebreak
 set exrc
 set belloff=all
@@ -166,3 +173,9 @@ nnoremap <silent> <leader>f :Files<CR>
 " Search files content (via ripgrep)
 nnoremap <silent> <leader>g :Rg<CR>
 
+"Auto resize windows
+nnoremap <silent> <leader>= <C-w>=
+
+
+
+source ~/coc.vim
