@@ -15,6 +15,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'tpope/vim-fugitive'
 call plug#end()
 
 " Plugins dependencies
@@ -50,6 +51,12 @@ set cmdheight=2
 set signcolumn=yes
 let g:NERDTreeShowHidden=1
 
+" Folding
+set nofoldenable
+set foldmethod=indent
+set foldlevel=20
+set foldclose=all
+
 " Autocompletion
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
@@ -74,7 +81,7 @@ set background=dark
 
 
 " Status line ------------------------------------------------------------------------------------
-:set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
+set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)%{(FugitiveStatusline())}
 
 
 " Ale lintera-------------------------------------------------------------------------------------
