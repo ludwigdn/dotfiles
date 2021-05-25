@@ -26,6 +26,7 @@ call plug#end()
 " https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions
 " :CocInstall coc-json coc-tsserver
 " :CocInstall coc-html coc-css
+" :CocInstall coc-vetur
 " :CocInstall coc-omnisharp
 
 
