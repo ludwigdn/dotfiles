@@ -82,7 +82,20 @@ set background=dark
 
 
 " Status line ------------------------------------------------------------------------------------
-set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)%{(FugitiveStatusline())}
+set statusline=
+set statusline+=%#PmenuSel#
+set statusline+=%{(FugitiveStatusline())}
+set statusline+=%#LineNr#
+set statusline+=\ %f
+set statusline+=%m\
+set statusline+=%=
+set statusline+=%#CursorColumn#
+set statusline+=\ %y
+set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
+set statusline+=\[%{&fileformat}\]
+set statusline+=\ %p%%
+set statusline+=\ %l:%c
+set statusline+=\
 
 
 " Ale lintera-------------------------------------------------------------------------------------
@@ -147,7 +160,7 @@ augroup END
 let mapleader = "\<space>"
 
 " Inner terminal shortcut
-map <leader>t :terminal<CR>
+" map <leader>t :terminal<CR>
 
 " NERDTree remaps
 nnoremap <leader>n :NERDTreeToggle<CR>
@@ -174,7 +187,7 @@ nnoremap <leader>cc :ccl<CR>
 
 " Yank current word / paste on current word
 nnoremap <leader>y viwy
-nnoremap <leader>p viwp
+nnoremap <leader>p viwpviwy
 
 " Search through file names (via fzf)
 nnoremap <silent> <leader>f :Files<CR>

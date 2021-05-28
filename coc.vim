@@ -46,7 +46,7 @@ function! s:check_back_space() abort
 endfunction
 
 " Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
+" inoremap <silent><expr> <c-space> coc#refresh()
 
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
 " position. Coc only does snippet and additional edit on confirm.
@@ -135,19 +135,19 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Mappings using CoCList:
 " Show all diagnostics.
-nnoremap <silent> <leader>ca  :<C-u>CocList diagnostics<cr>
+" nnoremap <silent> <leader>ca  :<C-u>CocList diagnostics<cr>
 " Manage extensions.
-nnoremap <silent> <leader>ce  :<C-u>CocList extensions<cr>
+" nnoremap <silent> <leader>ce  :<C-u>CocList extensions<cr>
 " Show commands.
-nnoremap <silent> <leader>cc  :<C-u>CocList commands<cr>
+" nnoremap <silent> <leader>cc  :<C-u>CocList commands<cr>
 " Find symbol of current document.
-nnoremap <silent> <leader>co  :<C-u>CocList outline<cr>
+" nnoremap <silent> <leader>co  :<C-u>CocList outline<cr>
 " Search workspace symbols.
-nnoremap <silent> <leader>cs  :<C-u>CocList -I symbols<cr>
+" nnoremap <silent> <leader>cs  :<C-u>CocList -I symbols<cr>
 " Do default action for next item.
-nnoremap <silent> <leader>cj  :<C-u>CocNext<CR>
+" nnoremap <silent> <leader>cj  :<C-u>CocNext<CR>
 " Do default action for previous item.
-nnoremap <silent> <leader>ck  :<C-u>CocPrev<CR>
+" nnoremap <silent> <leader>ck  :<C-u>CocPrev<CR>
 " Resume latest coc list.
-nnoremap <silent> <leader>cp  :<C-u>CocListResume<CR>
+" nnoremap <silent> <leader>cp  :<C-u>CocListResume<CR>
 
