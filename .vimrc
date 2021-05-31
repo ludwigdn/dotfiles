@@ -90,9 +90,9 @@ set statusline+=\ %f
 set statusline+=%m\
 set statusline+=%=
 set statusline+=%#CursorColumn#
-set statusline+=\ %y
-set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
-set statusline+=\[%{&fileformat}\]
+" set statusline+=\ %y
+" set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
+" set statusline+=\[%{&fileformat}\]
 set statusline+=\ %p%%
 set statusline+=\ %l:%c
 set statusline+=\
@@ -162,10 +162,11 @@ let mapleader = "\<space>"
 " Inner terminal shortcut
 " map <leader>t :terminal<CR>
 
-" NERDTree remaps
-nnoremap <leader>n :NERDTreeToggle<CR>
 " Rrefresh NERDTree
 nnoremap <leader>r :NERDTreeFocus<cr>R<c-w><c-p>
+" Reveal current file in NERDTree
+nnoremap <leader>nf :NERDTreeFind<CR>
+nnoremap <leader>nt :NERDTreeToggle<CR>
 
 " Switch between windows more easily
 nnoremap <C-h> :wincmd h<CR>
