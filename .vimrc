@@ -18,6 +18,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-fugitive'
   Plug 'leafgarland/typescript-vim'
   Plug 'peitalin/vim-jsx-typescript'
+  Plug 'tpope/vim-rhubarb'
 call plug#end()
 
 " Plugins dependencies
@@ -161,6 +162,9 @@ augroup END
 " Remaps -----------------------------------------------------------------------------------------
 let mapleader = "\<space>"
 
+" Shortcut to Git Browse
+map <leader>gb :GBrowse<CR>
+
 " Inner terminal shortcut
 " map <leader>t :terminal<CR>
 
@@ -199,7 +203,5 @@ nnoremap <silent> <leader>g :Rg<CR>
 
 "Auto resize windows
 nnoremap <silent> <leader>= <C-w>=
-
-
 
 source ~/coc.vim
