@@ -168,8 +168,6 @@ map <leader>gb :GBrowse<CR>
 " Inner terminal shortcut
 " map <leader>t :terminal<CR>
 
-" Rrefresh NERDTree
-nnoremap <leader>r :NERDTreeFocus<cr>R<c-w><c-p>
 " Reveal current file in NERDTree
 nnoremap <leader>nf :NERDTreeFind<CR>
 nnoremap <leader>nt :NERDTreeToggle<CR>
@@ -181,8 +179,8 @@ nnoremap <C-k> :wincmd k<CR>
 nnoremap <C-l> :wincmd l<CR>
 
 " Move to previous/next buffer
-nnoremap <leader>j :bnext<CR>
-nnoremap <leader>k :bprev<CR>
+nnoremap <leader>j :bnext<CR>:NERDTreeFind<CR><c-w><c-p>
+nnoremap <leader>k :bprev<CR>:NERDTreeFind<CR><c-w><c-p>
 
 " Move to previous/next tab
 nnoremap <leader>h :tabp<CR>
@@ -197,9 +195,9 @@ nnoremap <leader>y viwy
 nnoremap <leader>p viwpviwy
 
 " Search through file names (via fzf)
-nnoremap <silent> <leader>f :Files<CR>
+nnoremap <silent> <leader>ff :Files<CR>
 " Search files content (via ripgrep)
-nnoremap <silent> <leader>g :Rg<CR>
+nnoremap <silent> <leader>fg :Rg<CR>
 
 "Auto resize windows
 nnoremap <silent> <leader>= <C-w>=
