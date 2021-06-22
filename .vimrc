@@ -202,4 +202,11 @@ nnoremap <silent> <leader>fg :Rg<CR>
 "Auto resize windows
 nnoremap <silent> <leader>= <C-w>=
 
+"Maps to prevent unwanted actions when focus is on NERDTree
+nnoremap <silent> <expr> <leader>ff (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":Files\<cr>"
+nnoremap <silent> <expr> <leader>fg (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":Rg\<cr>"
+nnoremap <silent> <expr> <leader>j (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":bnext\<CR>:NERDTreeFind\<CR>\<c-w>\<c-p>"
+nnoremap <silent> <expr> <leader>k (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":bprev\<CR>:NERDTreeFind\<CR>\<c-w>\<c-p>"
+" nnoremap <silent> <expr> ":q<cr>" (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":q\<cr>"
+
 source ~/coc.vim
