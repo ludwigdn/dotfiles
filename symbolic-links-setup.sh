@@ -4,4 +4,4 @@ ln -s ~/git/dotvim/.vimrc ~/.vimrc
 
 # splitted vim files -------------------
 rm ~/.vimsplit
-ln -s ~/.vimsplit ~/.vimsplit
+ln -s ~/git/dotvim/.vimsplit ~/.vimsplit
