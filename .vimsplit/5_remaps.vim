@@ -24,10 +24,15 @@ nnoremap <leader>l :tabn<CR>
 " Quickfixlist shortcuts
 nnoremap <leader>co :copen<CR>
 nnoremap <leader>cc :ccl<CR>
+nnoremap <leader>cn :cn<cr>
+nnoremap <leader>cp :cp<cr>
 
 " Yank current word / paste on current word
 nnoremap <leader>y viwy
 nnoremap <leader>p viwpviwy
+
+" Replace current line with yanked stuff, and yank it again
+nnoremap <leader>ap <s-v>pyy
 
 "Auto resize windows
 nnoremap <silent> <leader>= <C-w>=
