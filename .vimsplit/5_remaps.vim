@@ -27,6 +27,9 @@ nnoremap <leader>cc :ccl<CR>
 nnoremap <leader>cn :cn<cr>
 nnoremap <leader>cp :cp<cr>
 
+" Use the system clipboard instead of vim register
+set clipboard+=unnamedplus
+
 " Yank current word / paste on current word
 nnoremap <leader>y viwy
 nnoremap <leader>p viwpviwy
@@ -50,3 +53,6 @@ nnoremap <silent> <expr> ":q<cr>" (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" :
 nnoremap <silent> <expr> ":wq<cr>" (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":wq\<cr>"
 nnoremap <silent> <expr> ":wa<cr>" (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":wa\<cr>"
 
+" Set background theme
+nnoremap <leader>bl :set background=light<cr>
+nnoremap <leader>bd :set background=dark<cr>

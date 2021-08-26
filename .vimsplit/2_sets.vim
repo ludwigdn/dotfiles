@@ -43,10 +43,10 @@ set re=0
 
 
 " Colors -----------------------------------------------------------------------------------------
+set termguicolors
 set t_Co=256
 colorscheme gruvbox
 set background=dark
-
 
 " Status line ------------------------------------------------------------------------------------
 set statusline=
