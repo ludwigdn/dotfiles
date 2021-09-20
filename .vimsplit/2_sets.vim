@@ -24,6 +24,7 @@ set nofoldenable
 set foldmethod=indent
 set foldlevel=20
 set foldclose=all
+let g:NERDTreeIgnore = ['^node_modules$', '^dist$', '^.circleci$', '^.git$', '^.github$', '^.vscode$', '^.worktrees$']
 
 " Autocompletion
 filetype plugin on
@@ -65,7 +66,7 @@ set statusline+=\ %l:%c
 set statusline+=\
 
 
-" Ale lintera-------------------------------------------------------------------------------------
+" Ale linters -------------------------------------------------------------------------------------
 let g:ale_sign_error = '●'
 let g:ale_sign_warning = '.'
 let g:ale_lint_on_save = 1
