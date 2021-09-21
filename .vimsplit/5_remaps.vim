@@ -27,6 +27,9 @@ nnoremap <leader>cc :ccl<CR>
 nnoremap <leader>cn :cn<cr>
 nnoremap <leader>cp :cp<cr>
 
+"Comment code with //
+nnoremap <leader>cm 0wi//<ESC>
+
 " Use the system clipboard instead of vim register
 set clipboard+=unnamedplus
 
