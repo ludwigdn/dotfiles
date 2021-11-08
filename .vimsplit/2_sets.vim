@@ -19,6 +19,10 @@ set cmdheight=2
 set signcolumn=yes
 let g:NERDTreeShowHidden=1
 
+" Splitting panes
+set splitbelow
+set splitright
+
 " Folding
 set nofoldenable
 set foldmethod=indent
