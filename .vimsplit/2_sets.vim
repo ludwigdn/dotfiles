@@ -28,7 +28,7 @@ set nofoldenable
 set foldmethod=indent
 set foldlevel=20
 set foldclose=all
-let g:NERDTreeIgnore = ['^node_modules$', '^dist$', '^.circleci$', '^.git$', '^.github$', '^.vscode$', '^.worktrees$', '^obj$', '^bin$']
+let g:NERDTreeIgnore = ['^node_modules$','^build$', '^dist$', '^.circleci$', '^.git$', '^.github$', '^.vscode$', '^.worktrees$', '^obj$', '^bin$']
 
 " Autocompletion
 filetype plugin on
