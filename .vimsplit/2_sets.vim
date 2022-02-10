@@ -19,6 +19,10 @@ set cmdheight=2
 set signcolumn=yes
 let g:NERDTreeShowHidden=1
 
+" Allow deleting preivously typed text
+" (Had the case with my Raspbian's version of vim)
+set backspace=indent,eol,start
+
 " Splitting panes
 set splitbelow
 set splitright
