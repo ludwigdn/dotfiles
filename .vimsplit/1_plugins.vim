@@ -22,6 +22,9 @@ call plug#begin('~/.vim/plugged')
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
 
+" API  Blueprint linter
+  Plug 'kylef/apiblueprint.vim'
+
 call plug#end()
 
 

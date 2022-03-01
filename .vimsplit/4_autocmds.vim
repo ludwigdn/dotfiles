@@ -18,6 +18,9 @@ augroup MyCustomAutoGroup
   autocmd BufWritePre * :set fileformat=unix
   " Auto source .vimrc file at saving
   autocmd BufWritePost .vimrc :so %
+  " Format files
+  autocmd FileType json nnoremap <silent> <leader>fm :%!python -m json.tool<CR>
+  autocmd FileType apiblueprint nnoremap <silent> <leader>fm :call GenerateRefract()<CR>
 augroup END
 
 " WSL yank support

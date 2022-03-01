@@ -47,9 +47,6 @@ nnoremap <silent> <leader>= <C-w>=
 nnoremap <silent> <leader>ff :Files<CR>
 nnoremap <silent> <leader>fg :Rg<CR>
 
-" Format files
-nnoremap <silent> <leader>fj :%!python -m json.tool<CR>
-
 "Maps to prevent unwanted actions when focus is on NERDTree
 nnoremap <silent> <expr> <leader>ff (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":Files\<cr>"
 nnoremap <silent> <expr> <leader>fg (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":Rg\<cr>"
