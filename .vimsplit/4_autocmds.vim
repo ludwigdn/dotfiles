@@ -21,6 +21,8 @@ augroup MyCustomAutoGroup
   " Format files
   autocmd FileType json nnoremap <silent> <leader>fm :%!python -m json.tool<CR>
   autocmd FileType apiblueprint nnoremap <silent> <leader>fm :call GenerateRefract()<CR>
+  autocmd FileType xml nnoremap <silent> <leader>fm :!tidy -mi -xml -wrap 0 %<CR>
+  autocmd FileType html nnoremap <silent> <leader>fm :!tidy -mi -xml -wrap 0 %<CR>
 augroup END
 
 " WSL yank support
