@@ -21,6 +21,10 @@ nnoremap <leader>k :bprev<CR>:NERDTreeFind<CR><c-w><c-p>
 nnoremap <leader>h :tabp<CR>
 nnoremap <leader>l :tabn<CR>
 
+" Gitdiff shortcuts
+nnoremap <leader>dj ]c<CR>
+nnoremap <leader>dk [c<CR>
+
 " Quickfixlist shortcuts
 nnoremap <leader>co :copen<CR>
 nnoremap <leader>cc :ccl<CR>
