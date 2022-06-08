@@ -11,3 +11,5 @@ source ~/.vimsplit/3_functions.vim
 source ~/.vimsplit/4_autocmds.vim
 source ~/.vimsplit/5_remaps.vim
 source ~/.vimsplit/coc.vim
+
+packloadall

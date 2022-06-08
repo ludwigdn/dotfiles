@@ -25,6 +25,9 @@ call plug#begin('~/.vim/plugged')
 " API  Blueprint linter
   Plug 'kylef/apiblueprint.vim'
 
+" Prettier
+  Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
+
 call plug#end()
 
 

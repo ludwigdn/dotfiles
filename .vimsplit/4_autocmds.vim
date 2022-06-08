@@ -22,6 +22,9 @@ augroup MyCustomAutoGroup
   " This sets the file formats to unix, avoiding ^M errors when coming from dos
   autocmd BufWritePre * :set fileformat=unix
 
+  " Run prettier whe saving a file
+  autocmd BufWritePre *.{js,jsx,ts,tsx,html,json,css,scss,md,yaml} :Prettier
+
   " Auto source .vimrc file at saving
   autocmd BufWritePost .vimrc :so %
 
