@@ -5,5 +5,5 @@ echo 'Adding .vimrc' \
 
 # splitted vim files -------------------
 echo 'Adding vimsplit folder' \
-&& rm ~/.vimsplit > /dev/null 2>&1 \
+&& rm -rf ~/.vimsplit > /dev/null 2>&1 \
 && ln -s $CODE_HOME/dotvim/.vimsplit ~/.vimsplit
