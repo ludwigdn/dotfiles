@@ -73,6 +73,8 @@ set statusline+=\ %p%%
 set statusline+=\ %l:%c
 set statusline+=\
 
+" Prettier ---------------------------------------------------------------------------------------
+let g:prettier#config#trailing_comma = 'none'
 
 " Ale linters -------------------------------------------------------------------------------------
 let g:ale_sign_error = '●'
