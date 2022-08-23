@@ -10,8 +10,8 @@ set nohlsearch
 set hidden
 set noswapfile
 set nobackup
-set undodir=~/.vim/undodir
-set undofile
+"set undodir=~/.vim/undodir
+"set undofile
 set incsearch
 set hlsearch
 set cmdheight=2
