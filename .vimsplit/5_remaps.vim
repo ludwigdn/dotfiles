@@ -63,3 +63,6 @@ nnoremap <silent> <expr> ":wa<cr>" (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" 
 " Set background theme
 nnoremap <leader>bl :set background=light<cr>
 nnoremap <leader>bd :set background=dark<cr>
+
+" Terminal remaps
+tnoremap <Esc> <C-\><C-n> :q<CR>
