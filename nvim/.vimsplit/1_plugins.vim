@@ -28,6 +28,9 @@ call plug#begin('~/.vim/plugged')
 " Prettier
   Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
 
+" Tmux helpers
+  Plug 'christoomey/vim-tmux-navigator'
+
 call plug#end()
 
 
