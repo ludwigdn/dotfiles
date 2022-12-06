@@ -9,7 +9,12 @@ opt.tabstop = 2
 opt.shiftwidth = 2
 opt.expandtab = true
 opt.autoindent = true
--- opt.smartindent = true
+opt.smartindent = true
+
+-- folding
+opt.foldmethod = 'indent'
+opt.foldlevel = 20
+opt.foldclose = 'all'
 
 -- line wrapping
 opt.wrap = false
