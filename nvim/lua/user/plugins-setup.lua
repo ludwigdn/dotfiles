@@ -32,52 +32,42 @@ return packer.startup(function(use)
   -- Core plugins
   use("wbthomason/packer.nvim") -- Have packer manage itself
   use("nvim-lua/plenary.nvim") -- Useful lua functions used by lots of plugins
-  use("tpope/vim-fugitive")
   use("tpope/vim-rhubarb")
   use("tpope/vim-surround")
   use("christoomey/vim-tmux-navigator")
   use("numToStr/Comment.nvim")
-  --use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
 
   -- colorscheme
   use("gruvbox-community/gruvbox")
-  --use "RRethy/nvim-base16" -- A bunch of color schemes based on base 16
-  --use "LunarVim/Colorschemes" -- LunarVim specific color schemes
-  --use "rafi/awesome-vim-colorschemes"
-  -- use "luisiacc/gruvbox-baby"
-
-  -- which-key
-  --use "folke/which-key.nvim"
 
   -- nvim-tree
   use("nvim-tree/nvim-tree.lua")
 
   -- Icons
-  --use("kyazdani42/nvim-web-devicons")
   use("nvim-tree/nvim-web-devicons")
 
   -- telescope
   use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
   use("nvim-telescope/telescope.nvim")
-  --use "folke/trouble.nvim"
 
   -- git
-  --use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
+  use("tpope/vim-fugitive")
+  use("lewis6991/gitsigns.nvim")
 
   -- lualine
   use("nvim-lualine/lualine.nvim")
 
-  -- indentline
-  --use "lukas-reineke/indent-blankline.nvim"
-
-  -- colorizer
-  --use "norcalli/nvim-colorizer.lua"
-
-  -- formatter
-  --use "mhartington/formatter.nvim"
-
   -- treesitter
-  --use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
+  use({
+    "nvim-treesitter/nvim-treesitter",
+    run = function()
+      require("nvim-treesitter.install").update({ with_sync = true })
+    end
+  })
+
+  -- auto closing
+  use("windwp/nvim-autopairs")
+  use("windwp/nvim-ts-autotag")
 
   -- autocompletion
   use("hrsh7th/nvim-cmp") -- completion plugin
@@ -98,12 +88,6 @@ return packer.startup(function(use)
   use({ "glepnir/lspsaga.nvim", branch = "main" }) -- enhanced lsp uis
   use("jose-elias-alvarez/typescript.nvim") -- additional functionality for typescript server (e.g. rename file & update imports)
   use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
-  -- use("jose-elias-alvarez/null-ls.nvim") -- for formatters and linters
-  --use "williamboman/nvim-lsp-installer" -- simple to use language server installer
-  --use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
-
-  -- tab
-  --use "alvarosevilla95/luatab.nvim"
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
