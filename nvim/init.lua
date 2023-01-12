@@ -2,6 +2,7 @@ require("user.plugins-setup")
 
 require("user.core.colorscheme")
 require("user.core.keymaps")
+require("user.core.autocmds")
 require("user.core.options")
 
 require("user.plugins.comment")
