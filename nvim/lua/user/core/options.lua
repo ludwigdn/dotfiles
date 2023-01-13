@@ -4,6 +4,9 @@ local opt = vim.opt -- global access
 opt.relativenumber = true
 opt.number = true
 
+-- line wrapping
+opt.wrap = false
+
 -- tabs and indent
 opt.tabstop = 2
 opt.shiftwidth = 2
@@ -12,12 +15,9 @@ opt.autoindent = true
 opt.smartindent = true
 
 -- folding
-opt.foldmethod = 'indent'
+opt.foldmethod = "indent"
 opt.foldlevel = 20
-opt.foldclose = 'all'
-
--- line wrapping
-opt.wrap = false
+opt.foldclose = "all"
 
 -- search setting
 opt.ignorecase = true
@@ -35,5 +35,6 @@ opt.clipboard:append("unnamedplus")
 opt.splitbelow = true
 opt.splitright = true
 
--- Allow deleting preivously typed text
+-- Allow deleting previously typed text
+-- (Had the case with a Raspbian's version of vim)
 opt.backspace = "indent,eol,start"
