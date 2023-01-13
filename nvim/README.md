@@ -1,6 +1,6 @@
 # Install / update Neovim
 
-- Documentation: https://github.com/neovim/neovim/wiki/Installing-Neovim)
+- Documentation: https://github.com/neovim/neovim/wiki/Installing-Neovim
 
 ## MacOS
 
