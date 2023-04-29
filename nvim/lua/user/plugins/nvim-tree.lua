@@ -138,9 +138,6 @@ local function on_attach(bufnr)
 end
 
 nvimtree.setup({
-	-- open_on_setup = true,
-	-- open_on_setup_file = true,
-	-- open_on_tab = true,
 	hijack_cursor = true,
 	update_focused_file = {
 		enable = true,
@@ -148,15 +145,15 @@ nvimtree.setup({
 		ignore_list = {},
 	},
 	on_attach = on_attach,
-	-- view = {
-	-- 	mappings = {
-	-- 		list = mappings_list,
-	-- 	},
-	-- },
 	tab = {
 		sync = {
 			open = true,
 			close = true,
+		},
+	},
+	view = {
+		float = {
+			enable = true,
 		},
 	},
 	renderer = {
@@ -184,4 +181,4 @@ nvimtree.setup({
 	},
 })
 
-nvt_api.tree.toggle({ focus = true })
+-- nvt_api.tree.toggle({ focus = true })
