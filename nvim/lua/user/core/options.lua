@@ -25,7 +25,7 @@ opt.smartcase = true
 
 -- colors
 opt.termguicolors = true
-opt.background = "dark"
+opt.background = "light"
 --opt.colorscheme = "gruvbox"
 
 -- clipboard

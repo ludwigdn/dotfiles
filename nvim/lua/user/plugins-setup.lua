@@ -36,8 +36,17 @@ return packer.startup(function(use)
 	use("christoomey/vim-tmux-navigator")
 	use("numToStr/Comment.nvim")
 
+	-- treesitter
+	use({
+		"nvim-treesitter/nvim-treesitter",
+		run = function()
+			require("nvim-treesitter.install").update({ with_sync = true })
+		end,
+	})
+
 	-- colorscheme
-	use("gruvbox-community/gruvbox")
+	use("savq/melange-nvim")
+	--use("gruvbox-community/gruvbox")
 
 	-- nvim-tree
 	use("nvim-tree/nvim-tree.lua")
@@ -56,14 +65,6 @@ return packer.startup(function(use)
 	-- lualine
 	use("nvim-lualine/lualine.nvim")
 	use("SmiteshP/nvim-navic")
-
-	-- treesitter
-	use({
-		"nvim-treesitter/nvim-treesitter",
-		run = function()
-			require("nvim-treesitter.install").update({ with_sync = true })
-		end,
-	})
 
 	-- auto closing
 	use("windwp/nvim-autopairs")
@@ -85,7 +86,7 @@ return packer.startup(function(use)
 	-- lsp
 	use("neovim/nvim-lspconfig") -- easily configure language servers
 	use("hrsh7th/cmp-nvim-lsp") -- for autocompletion
-	use({ "glepnir/lspsaga.nvim", tag = "v0.2.9" }) -- enhanced lsp uis
+	use("glepnir/lspsaga.nvim") -- enhanced lsp uis
 	use("jose-elias-alvarez/typescript.nvim") -- additional functionality for typescript server (e.g. rename file & update imports)
 	use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
 
