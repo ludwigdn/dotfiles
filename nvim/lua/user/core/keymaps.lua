@@ -56,6 +56,9 @@ keymap.set("n", "z/", ":nohlsearch<CR>")
 -- Plugins keymaps
 -- ---------------
 
+-- LSP Saga
+keymap.set("n", "<leader>fa", ":Lspsaga code_action<CR>")
+
 -- Shortcut to Git Browse
 keymap.set("n", "<leader>gb", ":GBrowse<CR>")
 
