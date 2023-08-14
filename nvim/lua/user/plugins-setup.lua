@@ -39,9 +39,10 @@ return packer.startup(function(use)
 	-- treesitter
 	use({
 		"nvim-treesitter/nvim-treesitter",
-		run = function()
-			require("nvim-treesitter.install").update({ with_sync = true })
-		end,
+		run = {
+			"TSInstall markdown markdown_inline",
+			":TSUpdate",
+		},
 	})
 
 	-- colorscheme
@@ -56,7 +57,8 @@ return packer.startup(function(use)
 
 	-- telescope
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
-	use("nvim-telescope/telescope.nvim")
+	use({ "nvim-telescope/telescope.nvim", commit = "776b509" }) -- pinned to last release
+	use("sharkdp/fd") -- used by telescope
 
 	-- git
 	use("tpope/vim-fugitive")
