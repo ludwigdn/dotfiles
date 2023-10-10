@@ -12,6 +12,7 @@ end
 vim.g.loaded = 1
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
+vim.g.nvim_tree_disable_netrw = 0
 --vim.cmd([[ highlight NvimTreeIndentMarker guifg=#3FC5FF ]])
 --
 local M = {

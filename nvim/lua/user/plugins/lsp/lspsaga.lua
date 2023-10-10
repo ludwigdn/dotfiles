@@ -4,9 +4,14 @@ if not saga_status then
 end
 
 saga.setup({
+	definition = {
+		max_height = 0.6, --percentage
+		keys = {
+			tabe = "t",
+		},
+	},
 	finder = {
-		max_height = 0.5, --percentage
-		force_max_height = false,
+		max_height = 0.6, --percentage
 		keys = {
 			jump_to = "i",
 			edit = { "o", "<CR>" },
@@ -14,8 +19,8 @@ saga.setup({
 			split = "s",
 			tabe = "t",
 			tabnew = "r",
-			quit = { "q", "<ESC>" },
-			close_in_preview = { "q", "<ESC>" },
+			quit = "q",
+			close_in_preview = "q",
 		},
 	},
 })
