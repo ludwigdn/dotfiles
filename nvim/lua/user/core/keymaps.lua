@@ -53,6 +53,9 @@ keymap.set("n", "<leader>=", "<C-w>=")
 -- Clean search highlight
 keymap.set("n", "z/", ":nohlsearch<CR>")
 
+-- List current errors
+keymap.set("n", "<leader>ce", ":lua vim.diagnostic.setqflist()<CR>")
+
 -- Plugins keymaps
 -- ---------------
 
