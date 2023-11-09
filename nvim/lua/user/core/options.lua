@@ -6,6 +6,7 @@ opt.number = true
 
 -- line wrapping
 opt.wrap = false
+opt.linebreak = true
 
 -- tabs and indent
 opt.tabstop = 2

@@ -23,6 +23,14 @@ keymap.set("n", "<C-l>", "<C-w>l")
 keymap.set("n", "<Leader>-", "<C-W>s")
 keymap.set("n", "<Leader>|", "<C-W>v")
 
+-- Move easily within wrapped lines
+keymap.set("n", "j", "gj")
+keymap.set("n", "k", "gk")
+keymap.set("v", "j", "gj")
+keymap.set("v", "k", "gk")
+keymap.set("x", "j", "gj")
+keymap.set("x", "k", "gk")
+
 -- don't yank deleted chars
 keymap.set("n", "x", '"_x')
 
