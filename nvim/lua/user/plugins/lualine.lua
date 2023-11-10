@@ -16,7 +16,7 @@ lualine.setup({
 		lualine_a = { "mode" },
 		lualine_b = { "diff", "diagnostics" },
 		lualine_c = { { "filename", path = 1 } }, -- 0 = filename, 1 = relative , 2 = absolute
-		lualine_x = { "filetype" },
+		lualine_x = { "filetype", "filesize" },
 		lualine_y = { "progress" },
 		lualine_z = { "location" },
 	},
