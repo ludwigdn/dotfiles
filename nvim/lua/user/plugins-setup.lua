@@ -37,13 +37,7 @@ return packer.startup(function(use)
 	use("numToStr/Comment.nvim")
 
 	-- treesitter
-	use({
-		"nvim-treesitter/nvim-treesitter",
-		run = {
-			"TSInstall markdown markdown_inline",
-			":TSUpdate",
-		},
-	})
+	use({ "nvim-treesitter/nvim-treesitter", run = { ":TSInstall markdown markdown_inline", ":TSUpdate" } })
 
 	-- colorscheme
 	use("savq/melange-nvim")
