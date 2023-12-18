@@ -8,4 +8,6 @@
 
 ## Linux
 
-    todo
+    `curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage`
+    `chmod u+x nvim.appimage`
+    `ls -s ./nvim.appimage nvim`
