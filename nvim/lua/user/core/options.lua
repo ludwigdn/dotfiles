@@ -1,5 +1,11 @@
 local opt = vim.opt -- global access
 
+-- Remove tildes (~) at the beginning of the lines
+-- opt.fillchars = { eob = " " }
+
+-- always display the signs column (diff, errors, etc.)
+opt.signcolumn = "yes"
+
 -- line numbers
 opt.relativenumber = false
 opt.number = true
@@ -31,7 +37,6 @@ opt.smartcase = true
 -- colors
 opt.termguicolors = true
 opt.background = "light"
---opt.colorscheme = "gruvbox"
 
 -- clipboard
 opt.clipboard:append("unnamedplus")
@@ -44,5 +49,6 @@ opt.splitright = true
 -- (Had the case with a Raspbian's version of vim)
 opt.backspace = "indent,eol,start"
 
--- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
+-- if a file is being edited by another program (or was written to file
+-- while editing with another program), it is not allowed to be edited
 opt.writebackup = false
