@@ -5,6 +5,7 @@
 ## MacOS
 
     brew install neovim
+    breww install ripgrep
 
 ## Linux
 
