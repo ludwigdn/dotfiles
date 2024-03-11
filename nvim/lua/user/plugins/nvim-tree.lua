@@ -138,6 +138,11 @@ local function on_attach(bufnr)
 	vim.keymap.set("n", "bmv", api.marks.bulk.move, opts("Move Bookmarked"))
 end
 
+local gwidth = vim.api.nvim_list_uis()[1].width
+local gheight = vim.api.nvim_list_uis()[1].height
+local width = 60
+local height = 30
+
 nvimtree.setup({
 	hijack_cursor = true,
 	update_focused_file = {
@@ -153,8 +158,17 @@ nvimtree.setup({
 		},
 	},
 	view = {
+		width = width,
+		signcolumn = "no", -- hide the signs column in nvim-tree
 		float = {
 			enable = true,
+			open_win_config = {
+				relative = "editor",
+				width = width,
+				height = height,
+				row = (gheight - height) * 0.4,
+				col = (gwidth - width) * 0.5,
+			},
 		},
 	},
 	renderer = {
