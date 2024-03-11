@@ -51,7 +51,7 @@ return packer.startup(function(use)
 
 	-- telescope
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
-	use({ "nvim-telescope/telescope.nvim", commit = "776b509" }) -- pinned to last release
+	use({ "nvim-telescope/telescope.nvim" })
 	use("sharkdp/fd") -- used by telescope
 
 	-- git
