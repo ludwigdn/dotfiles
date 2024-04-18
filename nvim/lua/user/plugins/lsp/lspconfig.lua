@@ -24,11 +24,17 @@ navic.setup({
 })
 
 local keymap = vim.keymap -- for conciseness
+local buf_keymap = vim.api.nvim_buf_set_keymap
 
 -- enable keybinds only for when lsp server available
 local on_attach = function(client, bufnr)
 	-- keybind options
 	local opts = { noremap = true, silent = true, buffer = bufnr }
+	local buf_opts = { noremap = true, silent = true }
+
+	-- Documentation main keymap
+	--keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts) -- show documentation for what is under cursor
+	buf_keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", buf_opts)
 
 	-- set keybinds
 	keymap.set("n", "<leader>fa", ":Lspsaga code_action<CR>")
@@ -42,7 +48,6 @@ local on_attach = function(client, bufnr)
 	keymap.set("n", "<leader>d", "<cmd>Lspsaga show_cursor_diagnostics<CR>", opts) -- show diagnostics for cursor
 	keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts) -- jump to previous diagnostic in buffer
 	keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts) -- jump to next diagnostic in buffer
-	keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts) -- show documentation for what is under cursor
 	keymap.set("n", "<leader>o", "<cmd>LSoutlineToggle<CR>", opts) -- see outline on right hand side
 
 	-- typescript specific keymaps (e.g. rename file and update imports)
@@ -119,4 +124,10 @@ lspconfig["lua_ls"].setup({
 			},
 		},
 	},
+})
+
+-- configure omnisharp server
+lspconfig["omnisharp"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
 })
