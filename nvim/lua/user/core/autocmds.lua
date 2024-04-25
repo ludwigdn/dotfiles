@@ -34,10 +34,19 @@ local function tab_win_closed(winnr)
 		end
 	end
 end
+
 vim.api.nvim_create_autocmd("WinClosed", {
 	callback = function()
 		local winnr = tonumber(vim.fn.expand("<amatch>"))
 		vim.schedule_wrap(tab_win_closed(winnr))
 	end,
 	nested = true,
+})
+
+-- Auto wrap on markdown files
+local group = vim.api.nvim_create_augroup("Markdown Wrap Settings", { clear = true })
+vim.api.nvim_create_autocmd("BufEnter", {
+	pattern = { "*.md" },
+	group = group,
+	command = "setlocal wrap",
 })
