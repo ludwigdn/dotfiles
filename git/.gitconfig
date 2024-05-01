@@ -1,0 +1,18 @@
+[core]
+    autocrlf = input
+    editor = nvim
+
+[remote "origin"]
+    tagopt = --tags
+
+[alias]
+    uncommmit = reset --soft HEAD^
+
+[core]
+    excludesfile = "~/.gitignore"
+
+[pager]
+    branch = false
+
+[oh-my-zsh]
+	hide-status = 0

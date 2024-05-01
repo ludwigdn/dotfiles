@@ -1,0 +1,17 @@
+.DS_Store
+.eslintcache
+
+.git/
+.github/
+.vscode/
+.dist/
+
+*~
+
+bin/
+dist/
+node_modules/
+obj/
+
+*/*.log
+*.log
