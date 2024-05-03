@@ -13,7 +13,12 @@ compinit -C
 # -----------------
 mkdir ~/code > /dev/null 2>&1
 export CODE_HOME="$HOME/code"
-export CDPATH=".:$HOME/:$CODE_HOME/"
+export CDPATH=".:${CDPATH}:$CODE_HOME"
+
+# Dotnet folders
+# --------------
+export DOTNET_ROOT=$HOME/dotnet
+export PATH=$PATH:$HOME/dotnet
 
 
 # NeoVim as editor
