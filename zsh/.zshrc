@@ -9,6 +9,10 @@ done
 compinit -C
 
 
+# Source prepend config
+# ---------------------
+source $HOME/.zshrc.prepend
+
 # Code repositories
 # -----------------
 mkdir ~/code > /dev/null 2>&1
