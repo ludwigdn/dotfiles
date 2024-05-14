@@ -7,7 +7,7 @@ local opt = vim.opt -- global access
 opt.signcolumn = "yes"
 
 -- line numbers
-opt.relativenumber = false
+opt.relativenumber = true
 opt.number = true
 
 -- line wrapping

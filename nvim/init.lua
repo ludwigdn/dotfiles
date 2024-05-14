@@ -1,3 +1,35 @@
+--[[
+-- NOTE:
+-- The plugin files always get sourced, regardless of the loaded value,
+-- but at the top of each plugin there's a check for loaded and if this
+-- is the case they return immediately.
+]]
+--
+for _, plugin in ipairs({
+	"2html_plugin",
+	"getscript",
+	"getscriptPlugin",
+	"gzip",
+	"logipat",
+	"netrw",
+	"netrwPlugin",
+	"netrwSettings",
+	"netrwFileHandlers",
+	"matchit",
+	"tar",
+	"tarPlugin",
+	"rrhelper",
+	"vimball",
+	"vimballPlugin",
+	"zip",
+	"zipPlugin",
+	"tutor_mode_plugin",
+	"fzf",
+	"spellfile_plugin",
+}) do
+	vim.g["loaded_" .. plugin] = 1
+end
+
 require("user.plugins-setup")
 
 require("user.core.colorscheme")
