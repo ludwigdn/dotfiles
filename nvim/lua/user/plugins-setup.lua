@@ -37,7 +37,7 @@ return packer.startup(function(use)
 	use("numToStr/Comment.nvim")
 
 	-- treesitter
-	use({ "nvim-treesitter/nvim-treesitter", run = { ":TSInstall markdown markdown_inline", ":TSUpdate" } })
+	use({ "nvim-treesitter/nvim-treesitter", run = { ":TSUpdate" } })
 
 	-- colorscheme
 	use("savq/melange-nvim")
@@ -51,12 +51,7 @@ return packer.startup(function(use)
 
 	-- telescope
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
-	use({
-		"nvim-telescope/telescope.nvim",
-		tag = "0.1.6",
-		-- or                            , branch = '0.1.x',
-		requires = { { "nvim-lua/plenary.nvim" } },
-	})
+	use({ "nvim-telescope/telescope.nvim", tag = "0.1.6", requires = { { "nvim-lua/plenary.nvim" } } })
 	use("sharkdp/fd") -- used by telescope
 
 	-- git
