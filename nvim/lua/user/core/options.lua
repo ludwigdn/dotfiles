@@ -17,6 +17,10 @@ opt.linebreak = true
 -- width marker
 opt.colorcolumn = "100"
 
+-- Spellchecker
+opt.spelllang = "en_us"
+opt.spell = true
+
 -- tabs and indent
 opt.tabstop = 2
 opt.shiftwidth = 2

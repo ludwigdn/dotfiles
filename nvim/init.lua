@@ -3,8 +3,7 @@
 -- The plugin files always get sourced, regardless of the loaded value,
 -- but at the top of each plugin there's a check for loaded and if this
 -- is the case they return immediately.
-]]
---
+-- ]]
 
 vim.cmd("language en_US")
 
