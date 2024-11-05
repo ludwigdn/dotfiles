@@ -5,6 +5,9 @@
 -- is the case they return immediately.
 ]]
 --
+
+vim.cmd("language en_US")
+
 for _, plugin in ipairs({
 	"2html_plugin",
 	"getscript",
