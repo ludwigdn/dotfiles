@@ -11,8 +11,7 @@ local ensure_packer = function()
 end
 local packer_bootstrap = ensure_packer() -- true if packer was just installed
 
--- autocommand that reloads neovim and installs/updates/removes plugins
--- when file is saved
+-- autocommand that reloads neovim and installs/updates/removes plugins when file is saved
 vim.cmd([[
   augroup packer_user_config
     autocmd!
@@ -87,7 +86,11 @@ return packer.startup(function(use)
 	use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
 
 	-- formatting & linting
-	use("jose-elias-alvarez/null-ls.nvim") -- configure formatters & linters
+	use({
+		"jose-elias-alvarez/null-ls.nvim", -- configure formatters & linters
+		commit = "0010ea927ab7c09ef0ce9bf28c2b573fc302f5a7", -- Repos is archived. Force to last commit before being archived.
+		requires = { { "nvim-lua/plenary.nvim" } },
+	})
 	use("jayp0521/mason-null-ls.nvim") -- bridges gap b/w mason & null-ls
 
 	-- Automatically set up your configuration after cloning packer.nvim
