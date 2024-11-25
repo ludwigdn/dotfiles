@@ -6,13 +6,14 @@ local keymap = vim.keymap
 vim.g.mapleader = " "
 
 -- Modes
---   normal_mode = "n",
---   insert_mode = "i",
---   visual_mode = "v",
---   visual_block_mode = "x",
---   term_mode = "t",
---   command_mode = "c",
+--   normal_mode =       "n"
+--   insert_mode =       "i"
+--   visual_mode =       "v"
+--   visual_block_mode = "x"
+--   term_mode =         "t"
+--   command_mode =      "c"
 
+-- ---------------
 -- General keymaps
 -- ---------------
 
@@ -64,6 +65,7 @@ keymap.set("n", "z/", ":nohlsearch<CR>")
 -- List current errors
 keymap.set("n", "<leader>ce", ":lua vim.diagnostic.setqflist()<CR>")
 
+-- ---------------
 -- Plugins keymaps
 -- ---------------
 
@@ -76,8 +78,8 @@ keymap.set("n", "<leader>nt", ":NvimTreeToggle<CR>")
 keymap.set("n", "<leader>nf", ":NvimTreeFindFile<CR>")
 
 -- Telescope
-keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>") -- find files within current working directory, respects .gitignore
+keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>") --  find files within current working directory, respects .gitignore
 keymap.set("n", "<leader>fg", "<cmd>Telescope grep_string<cr>") -- find string under cursor in current working directory
-keymap.set("n", "<leader>fc", "<cmd>Telescope live_grep<cr>") -- find string in current working directory as you type
-keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>") -- list open buffers in current neovim instance
-keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>") -- list available help tags
+keymap.set("n", "<leader>fc", "<cmd>Telescope live_grep<cr>") --   find string in current working directory as you type
+keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>") --     list open buffers in current neovim instance
+keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>") --   list available help tags
