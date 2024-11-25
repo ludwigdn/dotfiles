@@ -4,13 +4,6 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 	command = [[%s/\s\+$//e]],
 })
 
--- Auto lint
-vim.api.nvim_create_autocmd("BufWritePre", {
-	pattern = { "*.tsx", "*.ts", "*.jsx", "*.js" },
-	command = "silent! EslintFixAll",
-	group = vim.api.nvim_create_augroup("MyAutocmdsJavaScripFormatting", {}),
-})
-
 -- Auto close NvimTree when last in tab or last buffer at all
 local function tab_win_closed(winnr)
 	local api = require("nvim-tree.api")
