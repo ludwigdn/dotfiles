@@ -92,6 +92,9 @@ function gitRebaseFrom() {
 alias lsl='ls -lA'
 alias nv='nvim'
 
+# Tmux
+alias tm='tmux new-session -n "Terminal"'
+
 # Npm
 alias nci="npm ci"
 alias nr="npm run"
