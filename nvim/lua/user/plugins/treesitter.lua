@@ -24,7 +24,6 @@ treesitter.setup({
 		"scss",
 		"javascript",
 		"tsx",
-		"typescript",
 		"vue",
 
 		"bash",
