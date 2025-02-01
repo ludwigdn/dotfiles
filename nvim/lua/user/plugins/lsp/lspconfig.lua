@@ -87,6 +87,15 @@ typescript.setup({
 	},
 })
 
+-- configure vue server
+lspconfig["volar"].setup({
+	init_options = {
+		vue = {
+			hybridMode = false,
+		},
+	},
+})
+
 -- configure css server
 lspconfig["cssls"].setup({
 	capabilities = capabilities,

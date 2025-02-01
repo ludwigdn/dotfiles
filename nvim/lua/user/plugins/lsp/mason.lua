@@ -25,7 +25,7 @@ mason_lspconfig.setup({
 		"tailwindcss",
 		"lua_ls",
 		"emmet_ls",
-		"vuels",
+		"volar",
 		"omnisharp",
 	},
 	-- auto-install configured servers (with lspconfig)
