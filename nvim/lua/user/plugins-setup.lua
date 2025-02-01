@@ -36,7 +36,7 @@ return packer.startup(function(use)
 	use("numToStr/Comment.nvim")
 
 	-- treesitter
-	use({ "nvim-treesitter/nvim-treesitter", run = { ":TSUpdate" } })
+	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 
 	-- colorscheme
 	use("savq/melange-nvim")
@@ -50,7 +50,7 @@ return packer.startup(function(use)
 
 	-- telescope
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
-	use({ "nvim-telescope/telescope.nvim", tag = "0.1.6", requires = { { "nvim-lua/plenary.nvim" } } })
+	use({ "nvim-telescope/telescope.nvim", tag = "0.1.6", requires = "nvim-lua/plenary.nvim" })
 	use("sharkdp/fd") -- used by telescope
 
 	-- git
@@ -88,7 +88,7 @@ return packer.startup(function(use)
 	use({
 		"jose-elias-alvarez/null-ls.nvim", -- configure formatters & linters
 		commit = "0010ea927ab7c09ef0ce9bf28c2b573fc302f5a7", -- Repos is archived. Force to last commit before being archived.
-		requires = { { "nvim-lua/plenary.nvim" } },
+		requires = "nvim-lua/plenary.nvim",
 	})
 	use("jayp0521/mason-null-ls.nvim") -- bridges gap b/w mason & null-ls
 
