@@ -17,7 +17,7 @@ null_ls.setup({
 		formatting.prettier,
 		diagnostics.eslint_d.with({
 			condition = function(utils)
-				return utils.root_has_file({ ".eslintrc.js", ".eslintrc.cjs" })
+				return utils.root_has_file({ ".eslintrc.json", ".eslintrc.js", ".eslintrc.cjs" })
 			end,
 		}),
 	},
