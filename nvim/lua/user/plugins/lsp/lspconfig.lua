@@ -21,6 +21,12 @@ navic.setup({
 local keymap = vim.keymap -- for conciseness
 local buf_keymap = vim.api.nvim_buf_set_keymap
 
+-- Lspsaga show_[...]_diagnostics now only works if severity_sort is truthty
+-- https://github.com/nvimdev/lspsaga.nvim/issues/1520
+vim.diagnostic.config({
+	severity_sort = true,
+})
+
 -- enable keybinds only for when lsp server available
 local on_attach = function(client, bufnr)
 	-- keybind options
