@@ -88,14 +88,23 @@ function gitRebaseFrom() {
   git switch $branch_to_rebase_from && git pull --rebase && git switch - && git rebase $branch_to_rebase_from
 }
 
+
 # Shell
+# -----
+
 alias lsl='ls -lA'
 alias nv='nvim'
 
+
 # Tmux
+# ----
+
 alias tm='tmux new-session -n "Terminal"'
 
+
 # Npm
+# ---
+
 alias nci="npm ci"
 alias nr="npm run"
 alias nrs="npm run start"
@@ -108,7 +117,10 @@ alias nrti="npm run test:integration"
 alias nrl="npm run lint"
 alias nrlf="npm run lint-fix > /dev/null 2>&1 || npm run lint:fix"
 
+
 # Git
+# ---
+
 alias gcan='git commit --amend --no-edit'
 alias gcut='git stash'
 alias gpst='git stash pop'
