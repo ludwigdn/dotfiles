@@ -1,21 +1,47 @@
 [include]
-    path = "~/.gitconfig.prepend"
+  path = "~/.gitconfig.prepend"
+
+[init]
+  defaultBranch = main
 
 [core]
-    autocrlf = input
-    editor = nvim
+  autocrlf = input
+  editor = nvim
+  excludesfile = "~/.gitignore"
+
+[diff]
+  algorithm = histogram
+  colorMoved = plain
+  mnemonicPrefix = true
+  renames = true
+
+[push]
+  default = simple
+  autoSetupRemote = true
+  followTags = true
+
+[fetch]
+  prune = true
+  prunteTags = true
+  all = true
+
+[column]
+  ui = auto
+
+[branch]
+  sort = committerdate
+
+[tag]
+  sort = version:refname
 
 [remote "origin"]
-    tagopt = --tags
+  tagopt = --tags
 
 [alias]
-    uncommmit = reset --soft HEAD^
-
-[core]
-    excludesfile = "~/.gitignore"
+  uncommmit = reset --soft HEAD^
 
 [pager]
-    branch = false
+  branch = false
 
 [oh-my-zsh]
-    hide-status = 0
+  hide-status = 0
