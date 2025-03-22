@@ -125,6 +125,7 @@ alias gcan='git commit --amend --no-edit'
 alias gcut='git stash'
 alias gpst='git stash pop'
 alias grbf="gitRebaseFrom"
+alias glog="git log"
 
 
 # Prompt configs
