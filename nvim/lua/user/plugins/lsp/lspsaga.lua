@@ -1,26 +1,25 @@
 local saga_status, saga = pcall(require, "lspsaga")
 if not saga_status then
-	return
+  return
 end
 
+vim.keymap.set('n', '<leader>t', ':Lspsaga term_toggle<CR>')
+
 saga.setup({
-	definition = {
-		max_height = 0.6, --percentage
-		keys = {
-			tabe = "t",
-		},
-	},
-	finder = {
-		max_height = 0.6, --percentage
-		keys = {
-			jump_to = "i",
-			edit = { "o", "<CR>" },
-			vsplit = "v",
-			split = "s",
-			tabe = "t",
-			tabnew = "r",
-			quit = "q",
-			close_in_preview = "q",
-		},
-	},
+  definition = {
+    max_height = 0.8, --percentage
+    keys = {
+      tabe = "t",
+    },
+  },
+  finder = {
+    max_height = 0.8, --percentage
+    keys = {
+      edit = { "o", "<CR>" },
+      vsplit = "v",
+      split = "s",
+      tabe = "t",
+      quit = "q",
+    },
+  },
 })

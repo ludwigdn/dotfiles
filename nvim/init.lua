@@ -8,28 +8,28 @@
 vim.cmd("language en_US")
 
 for _, plugin in ipairs({
-	"2html_plugin",
-	"getscript",
-	"getscriptPlugin",
-	"gzip",
-	"logipat",
-	"netrw",
-	"netrwPlugin",
-	"netrwSettings",
-	"netrwFileHandlers",
-	"matchit",
-	"tar",
-	"tarPlugin",
-	"rrhelper",
-	"vimball",
-	"vimballPlugin",
-	"zip",
-	"zipPlugin",
-	"tutor_mode_plugin",
-	"fzf",
-	"spellfile_plugin",
+  "2html_plugin",
+  "getscript",
+  "getscriptPlugin",
+  "gzip",
+  "logipat",
+  "netrw",
+  "netrwPlugin",
+  "netrwSettings",
+  "netrwFileHandlers",
+  "matchit",
+  "tar",
+  "tarPlugin",
+  "rrhelper",
+  "vimball",
+  "vimballPlugin",
+  "zip",
+  "zipPlugin",
+  "tutor_mode_plugin",
+  "fzf",
+  "spellfile_plugin",
 }) do
-	vim.g["loaded_" .. plugin] = 1
+  vim.g["loaded_" .. plugin] = 1
 end
 
 require("user.plugins-setup")
@@ -40,6 +40,7 @@ require("user.core.autocmds")
 require("user.core.options")
 
 require("user.plugins.comment")
+require("user.plugins.gitbrowse")
 require("user.plugins.nvim-tree")
 require("user.plugins.lualine")
 require("user.plugins.telescope")

@@ -8,6 +8,8 @@ for dump in ~/.zcompdump(N.mh+24); do
 done
 compinit -C
 
+# Helps fixing issues between nvim inner terminal and zsh
+export LANG=en_US.UTF-8
 
 # Source prepend config
 # ---------------------

@@ -1,100 +1,100 @@
 -- auto install packer if not installed
 local ensure_packer = function()
-	local fn = vim.fn
-	local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-	if fn.empty(fn.glob(install_path)) > 0 then
-		fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
-		vim.cmd([[packadd packer.nvim]])
-		return true
-	end
-	return false
+  local fn = vim.fn
+  local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+  if fn.empty(fn.glob(install_path)) > 0 then
+    fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
+    vim.cmd([[packadd packer.nvim]])
+    return true
+  end
+  return false
 end
 local packer_bootstrap = ensure_packer() -- true if packer was just installed
 
 -- autocommand that reloads neovim and installs/updates/removes plugins when file is saved
 vim.cmd([[
   augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins-setup.lua source <afile> | PackerSync
+  autocmd!
+  autocmd BufWritePost plugins-setup.lua source <afile> | PackerSync
   augroup end
 ]])
 
 -- import packer safely
 local status, packer = pcall(require, "packer")
 if not status then
-	return
+  return
 end
 
 -- add list of plugins to install
 return packer.startup(function(use)
-	-- Core plugins
-	use("wbthomason/packer.nvim") -- Have packer manage itself
-	use("nvim-lua/plenary.nvim") -- Useful lua functions used by lots of plugins
-	use("tpope/vim-rhubarb")
-	use("tpope/vim-surround")
-	use("christoomey/vim-tmux-navigator")
-	use("numToStr/Comment.nvim")
+  -- Core plugins
+  use("wbthomason/packer.nvim") -- Have packer manage itself
+  use("nvim-lua/plenary.nvim") -- Useful lua functions used by lots of plugins
+  use("tpope/vim-rhubarb")
+  use("tpope/vim-surround")
+  use("christoomey/vim-tmux-navigator")
+  use("numToStr/Comment.nvim")
 
-	-- treesitter
-	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
+  -- treesitter
+  use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 
-	-- colorscheme
-	use("savq/melange-nvim")
-	--use("gruvbox-community/gruvbox")
+  -- colorscheme
+  use("savq/melange-nvim")
+  --use("gruvbox-community/gruvbox")
 
-	-- nvim-tree
-	use("nvim-tree/nvim-tree.lua")
+  -- nvim-tree
+  use("nvim-tree/nvim-tree.lua")
+  use("nvim-tree/nvim-web-devicons")
 
-	-- Icons
-	use("nvim-tree/nvim-web-devicons")
+  -- telescope
+  use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
+  use({ "nvim-telescope/telescope.nvim", tag = "0.1.6", requires = "nvim-lua/plenary.nvim" })
+  use("sharkdp/fd") -- used by telescope
 
-	-- telescope
-	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
-	use({ "nvim-telescope/telescope.nvim", tag = "0.1.6", requires = "nvim-lua/plenary.nvim" })
-	use("sharkdp/fd") -- used by telescope
+  -- git
+  use("tpope/vim-fugitive")
+  use("lewis6991/gitsigns.nvim")
 
-	-- git
-	use("tpope/vim-fugitive")
-	use("lewis6991/gitsigns.nvim")
+  -- lualine
+  use("nvim-lualine/lualine.nvim")
+  use("SmiteshP/nvim-navic")
 
-	-- lualine
-	use("nvim-lualine/lualine.nvim")
-	use("SmiteshP/nvim-navic")
+  -- auto closing
+  use("windwp/nvim-autopairs")
+  use("windwp/nvim-ts-autotag")
 
-	-- auto closing
-	use("windwp/nvim-autopairs")
-	use("windwp/nvim-ts-autotag")
+  -- autocompletion
+  use("hrsh7th/nvim-cmp") -- completion plugin
+  use("hrsh7th/cmp-buffer") -- source for text in buffer
+  use("hrsh7th/cmp-path") -- source for file system paths
 
-	-- autocompletion
-	use("hrsh7th/nvim-cmp") -- completion plugin
-	use("hrsh7th/cmp-buffer") -- source for text in buffer
-	use("hrsh7th/cmp-path") -- source for file system paths
+  -- snippets
+  use("L3MON4D3/LuaSnip") -- snippet engine
+  use("saadparwaiz1/cmp_luasnip") -- for autocompletion
 
-	-- snippets
-	use("L3MON4D3/LuaSnip") -- snippet engine
-	use("saadparwaiz1/cmp_luasnip") -- for autocompletion
+  -- managing & installing lsp servers, linters & formatters
+  use("williamboman/mason.nvim") -- in charge of managing lsp servers, linters & formatters
+  use("williamboman/mason-lspconfig.nvim") -- bridges gap b/w mason & lspconfig
 
-	-- managing & installing lsp servers, linters & formatters
-	use("williamboman/mason.nvim") -- in charge of managing lsp servers, linters & formatters
-	use("williamboman/mason-lspconfig.nvim") -- bridges gap b/w mason & lspconfig
+  -- lsp
+  use("neovim/nvim-lspconfig") -- easily configure language servers
+  use("hrsh7th/cmp-nvim-lsp") -- for autocompletion
+  use("glepnir/lspsaga.nvim") -- enhanced lsp uis
+  use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
 
-	-- lsp
-	use("neovim/nvim-lspconfig") -- easily configure language servers
-	use("hrsh7th/cmp-nvim-lsp") -- for autocompletion
-	use("glepnir/lspsaga.nvim") -- enhanced lsp uis
-	use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
+  -- formatting & linting
+  use({
+    "nvimtools/none-ls.nvim", -- configure formatters & linters
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "jayp0521/mason-null-ls.nvim", -- bridges gap b/w mason & null-ls
+      "nvimtools/none-ls-extras.nvim" -- for eslint in null-ls config
+    },
+  })
 
-	-- formatting & linting
-	use({
-		"jose-elias-alvarez/null-ls.nvim", -- configure formatters & linters
-		commit = "0010ea927ab7c09ef0ce9bf28c2b573fc302f5a7", -- Repos is archived. Force to last commit before being archived.
-		requires = "nvim-lua/plenary.nvim",
-	})
-	use("jayp0521/mason-null-ls.nvim") -- bridges gap b/w mason & null-ls
-
-	-- Automatically set up your configuration after cloning packer.nvim
-	-- Put this at the end after all plugins
-	if packer_bootstrap then
-		require("packer").sync()
-	end
+  -- Automatically set up your configuration after cloning packer.nvim
+  -- Put this at the end after all plugins
+  if packer_bootstrap then
+    require("packer").sync()
+  end
 end)
