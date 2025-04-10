@@ -4,10 +4,17 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   command = [[%s/\s\+$//e]],
 })
 
--- Auto indent at save
+-- Auto indent at save and return to last cursor position
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   pattern = { "*" },
-  command = ":execute 'normal! ggVG='",
+  callback = function()
+    -- Save current cursor position
+    local pos = vim.api.nvim_win_get_cursor(0)
+    -- Ident file(s)
+    vim.cmd(":execute 'normal! ggVG='")
+    -- Restore cursor position
+    vim.api.nvim_win_set_cursor(0, pos)
+  end
 })
 
 -- Auto wrap on markdown files
