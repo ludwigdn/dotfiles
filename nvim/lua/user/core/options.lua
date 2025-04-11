@@ -56,3 +56,6 @@ opt.backspace = "indent,eol,start"
 -- if a file is being edited by another program (or was written to file
 -- while editing with another program), it is not allowed to be edited
 opt.writebackup = false
+
+-- Limit spell checker results
+opt.spellsuggest = { 'best', 5 }

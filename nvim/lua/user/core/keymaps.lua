@@ -66,3 +66,6 @@ keymap.set("n", "s","")
 keymap.set("n", "<leader>sg","zg")
 keymap.set("n", "<leader>s<space>","z=")
 keymap.set("n", "<leader>sb","zw")
+
+-- Spell checker
+keymap.set("n", "<leader>s<space>", "z=1<CR><CR>")
