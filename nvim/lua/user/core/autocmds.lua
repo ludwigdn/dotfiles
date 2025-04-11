@@ -14,6 +14,8 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
     vim.cmd(":execute 'normal! ggVG='")
     -- Restore cursor position
     vim.api.nvim_win_set_cursor(0, pos)
+    -- Center buffer on cursor
+    vim.cmd(":execute 'normal! zz'")
   end
 })
 
