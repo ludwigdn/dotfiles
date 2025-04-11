@@ -60,3 +60,9 @@ keymap.set("n", "z/", ":nohlsearch<CR>")
 
 -- List current errors
 keymap.set("n", "<leader>ce", ":lua vim.diagnostic.setqflist()<CR>")
+
+-- Spell checker
+keymap.set("n", "s","")
+keymap.set("n", "<leader>sg","zg")
+keymap.set("n", "<leader>s<space>","z=")
+keymap.set("n", "<leader>sb","zw")
