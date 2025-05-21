@@ -77,7 +77,7 @@ lspconfig.ts_ls.setup({
 })
 
 -- configure vue server
-lspconfig["volar"].setup({
+lspconfig["vuels"].setup({
   init_options = {
     vue = {
       hybridMode = false,
