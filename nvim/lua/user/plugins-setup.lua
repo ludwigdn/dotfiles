@@ -30,7 +30,6 @@ return packer.startup(function(use)
   -- Core plugins
   use("wbthomason/packer.nvim") -- Have packer manage itself
   use("nvim-lua/plenary.nvim") -- Useful lua functions used by lots of plugins
-  use("tpope/vim-rhubarb")
   use("tpope/vim-surround")
   use("christoomey/vim-tmux-navigator")
   use("numToStr/Comment.nvim")
@@ -53,6 +52,7 @@ return packer.startup(function(use)
 
   -- git
   use("tpope/vim-fugitive")
+  use("tpope/vim-rhubarb")
   use("lewis6991/gitsigns.nvim")
 
   -- lualine

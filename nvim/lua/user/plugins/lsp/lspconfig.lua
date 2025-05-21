@@ -29,17 +29,8 @@ vim.diagnostic.config({
 vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>")
 
 -- set keybinds
-vim.keymap.set("n", "<leader>fa", ":Lspsaga code_action<CR>")
-vim.keymap.set("n", "gf", ":Lspsaga finder<CR>") -- show definition, references
 vim.keymap.set("n", "gD", ":lua vim.lsp.buf.declaration()<CR>") -- got to declaration
-vim.keymap.set("n", "gd", ":Lspsaga peek_definition<CR>") -- see definition and make edits in window
 vim.keymap.set("n", "gi", ":lua vim.lsp.buf.implementation()<CR>") -- go to implementation
-vim.keymap.set("n", "<leader>ca", ":Lspsaga code_action<CR>") -- see available code actions
-vim.keymap.set("n", "<leader>rn", ":Lspsaga rename<CR>") -- smart rename
-vim.keymap.set("n", "<leader>D", ":Lspsaga show_line_diagnostics<CR>") -- show  diagnostics for line
-vim.keymap.set("n", "<leader>d", ":Lspsaga show_cursor_diagnostics<CR>") -- show diagnostics for cursor
-vim.keymap.set("n", "[d", ":Lspsaga diagnostic_jump_prev<CR>") -- jump to previous diagnostic in buffer
-vim.keymap.set("n", "]d", ":Lspsaga diagnostic_jump_next<CR>") -- jump to next diagnostic in buffer
 vim.keymap.set("n", "<leader>o", ":LSoutlineToggle<CR>") -- see outline on right hand side
 
 local on_attach = function(client, bufnr)
