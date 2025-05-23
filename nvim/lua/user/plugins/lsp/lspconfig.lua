@@ -67,15 +67,6 @@ lspconfig["html"].setup({
   on_attach = on_attach,
 })
 
--- configure typescript server with plugin
-lspconfig.ts_ls.setup({
-  server = {
-    capabilities = capabilities,
-    on_attach = on_attach,
-    filetypes = { "javascript", "typescript" },
-  },
-})
-
 -- configure vue server
 lspconfig["vuels"].setup({
   init_options = {
