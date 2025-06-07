@@ -126,8 +126,9 @@ alias nrlf="npm run lint-fix > /dev/null 2>&1 || npm run lint:fix"
 alias gcan='git commit --amend --no-edit'
 alias gcut='git stash'
 alias gpst='git stash pop'
-alias grbf="gitRebaseFrom"
+alias grbf='gitRebaseFrom'
 alias glog="git log"
+alias gd='git diff -w'
 
 
 # Prompt configs
