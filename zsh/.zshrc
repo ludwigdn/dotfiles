@@ -107,17 +107,17 @@ alias tm='tmux new-session -n "Terminal"'
 # Npm
 # ---
 
-alias nci="npm ci"
-alias nr="npm run"
-alias nrs="npm run start"
-alias nrsv="npm run serve"
-alias nrb="npm run build"
-alias nrd="npm run dev"
-alias nrt="npm run test"
-alias nrtu="npm run test:unit"
-alias nrti="npm run test:integration"
-alias nrl="npm run lint"
-alias nrlf="npm run lint-fix > /dev/null 2>&1 || npm run lint:fix"
+alias nci='npm ci'
+alias nr='npm run'
+alias nrs='npm run start'
+alias nrsv='npm run serve'
+alias nrb='npm run build'
+alias nrd='npm run dev'
+alias nrt='npm run test'
+alias nrtu='npm run test:unit'
+alias nrti='npm run test:integration'
+alias nrl='npm run lint'
+alias nrlf='npm run lint-fix > /dev/null 2>&1 || npm run lint:fix'
 
 
 # Git
@@ -127,19 +127,12 @@ alias gcan='git commit --amend --no-edit'
 alias gcut='git stash'
 alias gpst='git stash pop'
 alias grbf='gitRebaseFrom'
-alias glog="git log"
+alias glog='git log'
 alias gd='git diff -w'
 
 
 # Prompt configs
 # --------------
-# prompt_context() {
-#   if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
-#     prompt_segment black default "%(!.%{%F{yellow}%}.)$USER"
-#   fi
-# }
-# Keep last (adds hour to prompt)
-# PROMPT='%{$fg[white]%}[%D{%H:%M:%S}]'$PROMPT
 
 
 # Stop diagnostics
