@@ -18,8 +18,13 @@ opt.linebreak = true
 opt.colorcolumn = "100"
 
 -- Spellchecker
-opt.spelllang = "en_us"
+opt.encoding = "utf-8"
+-- make sure the spellfile directory exists, sometimes nvim fails to create it when downloading
+-- spellfiles. If NetRW is disabled, downloading of spellfiles fails! See the comment in the
+-- filesystem_browsing.lua file in the Oil plugin section.
+vim.fn.mkdir(vim.fn.stdpath("data") .. "site/spell", "p")
 opt.spell = true
+opt.spelllang = { "en_us", "fr" }
 
 -- tabs and indent
 opt.tabstop = 2
@@ -58,4 +63,4 @@ opt.backspace = "indent,eol,start"
 opt.writebackup = false
 
 -- Limit spell checker results
-opt.spellsuggest = { 'best', 5 }
+opt.spellsuggest = { "best", 5 }

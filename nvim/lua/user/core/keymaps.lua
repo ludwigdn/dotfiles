@@ -62,10 +62,10 @@ keymap.set("n", "z/", ":nohlsearch<CR>")
 keymap.set("n", "<leader>ce", ":lua vim.diagnostic.setqflist()<CR>")
 
 -- Spell checker
-keymap.set("n", "s","")
-keymap.set("n", "<leader>sg","zg")
-keymap.set("n", "<leader>s<space>","z=")
-keymap.set("n", "<leader>sb","zw")
+keymap.set("n", "s", "")
+keymap.set("n", "<leader>sg", "zg") -- Add word to list
+keymap.set("n", "<leader>s<space>", "z=") -- See spelling proposals
+keymap.set("n", "<leader>sb", "zw")
 
 -- Spell checker
-keymap.set("n", "<leader>s<space>", "z=1<CR><CR>")
+keymap.set("n", "<leader>s<space>", "z=1<CR><CR>") -- Automatically apply first spelling proposal

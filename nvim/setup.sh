@@ -10,3 +10,6 @@ echo 'Adding init.lua' \
 echo 'Adding lua folder' \
 && rm -rf ~/.config/nvim/lua > /dev/null 2>&1 \
 && ln -s $CODE_HOME/dotfiles/nvim/lua ~/.config/nvim/lua
+
+echo 'Adding spell folder' \
+&& cp -R ./spell/ ~/.config/nvim/spell/ > /dev/null 2>&1 \
