@@ -13,6 +13,7 @@ vim.g.mapleader = " "
 --   term_mode =         "t"
 --   command_mode =      "c"
 
+-- Move between buffers
 keymap.set("n", "<C-h>", "<C-w>h")
 keymap.set("n", "<C-j>", "<C-w>j")
 keymap.set("n", "<C-k>", "<C-w>k")
@@ -31,13 +32,13 @@ keymap.set("x", "k", "gk")
 -- don't yank deleted chars
 keymap.set("n", "x", '"_x')
 
--- Increment / decrement
-keymap.set("n", "<leader>+", "<C-a>")
-keymap.set("n", "<leader>-", "<C-x>")
-
 -- Move to previous/next tab
 keymap.set("n", "<leader>h", ":tabp<CR>")
 keymap.set("n", "<leader>l", ":tabn<CR>")
+
+-- Move tab
+keymap.set("n", "<leader>-", ":tabm -1<CR>")
+keymap.set("n", "<leader>+", ":tabm +1<CR>")
 
 -- Quickfixlist shortcuts
 keymap.set("n", "<leader>co", ":copen<CR>")
