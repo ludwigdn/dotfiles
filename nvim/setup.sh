@@ -12,4 +12,4 @@ echo 'Adding lua folder' \
 && ln -s $CODE_HOME/dotfiles/nvim/lua ~/.config/nvim/lua
 
 echo 'Adding spell folder' \
-&& cp -R ./spell/ ~/.config/nvim/spell/ > /dev/null 2>&1 \
+&& cp -R $CODE_HOME/dotfiles/nvim/spell/ ~/.config/nvim/spell/
